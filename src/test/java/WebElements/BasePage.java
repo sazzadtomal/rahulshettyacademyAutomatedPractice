@@ -49,9 +49,6 @@ public class BasePage {
 
 
 
-
-
-
     public Boolean getElementDisplayStatus(By locator){
         try {
              return getElement(locator).isDisplayed();
