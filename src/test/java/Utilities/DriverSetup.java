@@ -15,8 +15,6 @@ public class DriverSetup {
 
 
 
-
-
     private static void setDriver(WebDriver driver){
         driverThreadLocal.set(driver);
     }
