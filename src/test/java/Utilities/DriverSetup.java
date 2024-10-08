@@ -11,17 +11,17 @@ public class DriverSetup {
 
 
     private final String browserName=System.getProperty("browserName","Chrome");
-    private final ThreadLocal<WebDriver> driverThreadLocal=new ThreadLocal<>();
+    private final static ThreadLocal<WebDriver> driverThreadLocal=new ThreadLocal<>();
 
 
 
 
 
-    private void setDriver(WebDriver driver){
+    private static void setDriver(WebDriver driver){
         driverThreadLocal.set(driver);
     }
 
-    public WebDriver getDriver(){
+    public static WebDriver getDriver(){
         return driverThreadLocal.get();
     }
 
