@@ -34,7 +34,7 @@ public class RadioButton extends DriverSetup {
 
 
     @Test
-    public void radioButtonGroupDisplayStatus(){
+    public void radioButtonGroupVisibility(){
         Assert.assertTrue(basePage.getElementDisplayStatus(radioButtonGroup));
     }
 
