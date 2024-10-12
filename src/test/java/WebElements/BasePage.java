@@ -7,9 +7,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 import static Utilities.DriverSetup.getDriver;
 
@@ -93,6 +95,24 @@ public class BasePage {
     public Boolean elementNotInFocus(By locator){
         JavascriptExecutor js=(JavascriptExecutor) getDriver();
         return (Boolean) js.executeScript(" return document.activeElement === arguments[0];", getElement(locator));
+    }
+
+    public List<WebElement>  getSelectionOptions(By locator){
+
+        Select dropdown=new Select(getElement(locator));
+        return dropdown.getOptions();
+    }
+
+    public WebElement getDefaultSelection(By locator){
+
+        Select dropdown=new Select(getElement(locator));
+        return dropdown.getFirstSelectedOption();
+    }
+
+    public Select getDropDown(By locator){
+
+        return new Select(getElement(locator));
+
     }
 
 
