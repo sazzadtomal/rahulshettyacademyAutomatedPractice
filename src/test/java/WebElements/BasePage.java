@@ -53,6 +53,14 @@ public class BasePage {
     }
 
 
+    public void bringElementIntoView(By locator){
+        JavascriptExecutor js=(JavascriptExecutor) getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);", getElement(locator));
+
+
+    }
+
+
 
     public String getCopiedText(){
 
@@ -118,6 +126,10 @@ public class BasePage {
 
         return new Select(getElement(locator));
 
+    }
+
+    public void simulateMouseHover(By locator){
+        getActions().clickAndHold(getElement(locator)).build().perform();
     }
 
 
