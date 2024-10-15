@@ -30,6 +30,11 @@ public class BasePage {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 
+    public List<WebElement> getElements(By locator){
+        WebDriverWait wait=new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
+
     public String getElementText(By locator){
         return getElement(locator).getText();
     }
